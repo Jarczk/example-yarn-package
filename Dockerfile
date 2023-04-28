@@ -1,6 +1,7 @@
+ARG GIT_REPO
 FROM node:latest as build
 RUN apt-get update && apt-get -y upgrade
-RUN git clone https://github.com/yarnpkg/example-yarn-package.git
+RUN git clone ${GIT_REPO}
 RUN yarn
 
 FROM build as test
